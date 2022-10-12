@@ -1,0 +1,27 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Fira Sans', sans-serif;
+}
+
+.App{
+  min-height: 100vh;
+  position: relative;
+  background-color: #313131;
+}
+
+video{
+
+  padding-left: 10%;
+  width: 90%;
+  max-width: 100%;
+  height: auto;
+  padding-bottom: 10%;
+}
+
+img {
+  width: 70%;
+  padding-top: 2%;
+  padding-left: 30%;
+}
