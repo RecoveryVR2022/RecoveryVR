@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Send Message to Unity</title>
+</head>
+<body>
+  <input type="text" id="messageInput" value="Hello from HTML">
+  <button onclick="sendMessage()">Send Message</button>
+
+  <script>
+    function sendMessage() {
+      var message = document.getElementById("messageInput").value;
+      var xhr = new XMLHttpRequest();
+      xhr.open("POST", "http://10.28.18.42:8080", true);
+      xhr.setRequestHeader("Content-Type", "text/plain");
+      xhr.send(message);
+    }
+  </script>
+</body>
+</html>
