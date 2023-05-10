@@ -10,53 +10,63 @@ See the License for the specific language governing permissions and
 limitations under the License.
 ==============================================================================-->
 <!DOCTYPE html>
-<html><head>
+<html>
+
+<head>
   <meta charset="UTF-8">
   <title>Web Camera</title>
   <link rel="stylesheet" href="demo.css">
   <style>
-
     #logo {
       display: block;
       margin: 0 auto;
     }
 
     body {
-      background-color: black;
+      background-color: rgba(40,40,40,255);
       color: white;
     }
 
     .container {
       display: flex;
       align-items: center;
+      margin-left: 15%;
+      margin-right: 15%;
     }
   </style>
 </head>
+
 <body>
-<div class="logo-container">
-  <img id="logo" src="logo.png" alt="Logo Image">
-</div>
-<div id="stats"></div>
-<div id="main">
-  <div class="container">
-    <div class="canvas-wrapper" style="width: 640px; height: 480px;">
-      <canvas id="output" width="640" height="480"></canvas>
-      <video id="video" playsinline="" style="
+  <div class="logo-container">
+    <img id="logo" src="logo.png" alt="Logo Image">
+  </div>
+  <div id="stats"></div>
+  <div id="main">
+    <div class="container">
+      <div class="canvas-wrapper" style="width: 640px; height: 480px;">
+        <canvas id="output" width="640" height="480"></canvas>
+        <video id="video" playsinline="" style="
           -webkit-transform: scaleX(-1);
           transform: scaleX(-1);
           visibility: hidden;
           width: auto;
           height: auto;
           " width="640" height="480">
-      </video>
+        </video>
+      </div>
+      <div id="scatter-gl-container" style="width: 640px; height: 480px; display: inline-block;"></div>
     </div>
-    <div id="scatter-gl-container" style="width: 640px; height: 480px; display: inline-block;"></div>
   </div>
-</div>
 
-<script src="index_files/dat.gui.min.js"></script>
-<script src="index_files/Stats.min.js"></script>
-<script src="index_files/src.a2b27638.js"></script><div class="dg ac"><div class="dg main a" style="user-select: none; width: 300px;" id="gui"><div style="width: 6px; margin-left: -3px; height: 277px; cursor: ew-resize; position: absolute;"></div><ul style="height: auto;"><li class="folder"><div class="dg"><ul><li class="title">Camera</li><li class="cr number"><div><span class="property-name">targetFPS</span><div class="c"><input type="text" value="60"></div></div></li><li class="cr string"><div><span class="property-name">sizeOption</span><div class="c"><select><option value="640 X 480" selected="selected">640 X 480</option><option value="640 X 360">640 X 360</option><option value="360 X 270">360 X 270</option></select></div></div></li></ul></div></li><li class="folder"><div class="dg"><ul><li class="title">Model</li><li class="cr string"><div><span class="property-name">model</span><div class="c"><select><option value="MoveNet">MoveNet</option><option value="BlazePose" selected="selected">BlazePose</option><option value="PoseNet">PoseNet</option></select></div></div></li><li class="cr string"><div><span class="property-name">type</span><div class="c"><select><option value="lite">lite</option><option value="full" selected="selected">full</option><option value="heavy">heavy</option></select></div></div></li><li class="cr number has-slider"><div><span class="property-name">scoreThreshold</span><div class="c"><div><input type="text" value="0.65"></div><div class="slider"><div class="slider-fg" style="width: 65%;"></div></div></div></div></li><li class="cr boolean"><div><span class="property-name">render3D</span><div class="c"><input type="checkbox" checked="checked"></div></div></li></ul></div></li><li class="folder"><div class="dg"><ul><li class="title">Backend</li><li class="cr string"><div><span class="property-name">runtime-backend</span><div class="c"><select><option value="mediapipe-gpu" selected="selected">mediapipe-gpu</option><option value="tfjs-webgl">tfjs-webgl</option></select></div></div></li></ul></div></li></ul><div class="close-button close-bottom" style="width: 300px;">Close Controls</div></div></div>
+  <script src="index_files/dat.gui.min.js"></script>
+  <script src="index_files/Stats.min.js"></script>
+  <script src="index_files/dataTransfer.js"></script>
+  <script src="index_files/src.a2b27638.js"></script>
+  </div>
 
 
-<script src="index_files/pose_solution_packed_assets_loader.js" crossorigin="anonymous"></script><script src="index_files/pose_solution_simd_wasm_bin.js" crossorigin="anonymous"></script></body></html>
+  <script src="index_files/pose_solution_packed_assets_loader.js" crossorigin="anonymous"></script>
+  <script src="index_files/pose_solution_simd_wasm_bin.js" crossorigin="anonymous"></script>
+</body>
+
+</html>
