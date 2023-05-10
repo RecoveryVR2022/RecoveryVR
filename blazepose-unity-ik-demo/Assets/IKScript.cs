@@ -7,7 +7,14 @@ using UnityEngine;
 
 public class IKScript : MonoBehaviour
 {
+    public bool Active;
     public float FrameRate;
+
+    public float xflip = 1f; //left-right
+    public float yflip = -1f; //keep at -1
+    public float zflip = 1f; //forward-backward
+
+    public bool UseDemoFile;
     public string DataFile;
     public int FrameStart, FrameEnd;
     public List<Transform> Bones = new List<Transform>();
@@ -57,13 +64,17 @@ public class IKScript : MonoBehaviour
             Debug.Log("IK initialized");
         }
 
-        LoadData();
+        if (UseDemoFile)
+            LoadData();
+
         timeElapsedThisFrame = 0;
     }
 
     void Update()
     {
         timeElapsedThisFrame += Time.deltaTime;
+        if (!Active || !UseDemoFile && !FrameBuffer.isActive)
+            return;
         if (timeElapsedThisFrame > (1 / FrameRate))
         {
             timeElapsedThisFrame = 0f;
@@ -204,16 +215,30 @@ public class IKScript : MonoBehaviour
 
     void UpdateFrameData()
     {
-        if (currentFrame >= FrameEnd)
+        if (UseDemoFile && currentFrame >= FrameEnd)
             return;
 
-        List<Vector3> curFramePoints = allPoints[currentFrame];
+        List<Vector3> curFramePoints;
+        if (UseDemoFile)
+            curFramePoints = allPoints[currentFrame];
+        else
+        {
+            curFramePoints = FrameBuffer.Get();
+            List<Vector3> mapped = new List<Vector3>(17);
+            for (int i = 0; i < 17; i++)
+            {
+                Vector3 v = map(i, curFramePoints);
+                mapped.Add(new Vector3(xflip*v.x,yflip*v.y,zflip*v.z));
+            }
+            curFramePoints = mapped;
+        }
+
         for (int i = 0; i < 17; i++)
             points[i] = curFramePoints[i];
         for (int i = 0; i < 12; i++)
             normalizedBoneVectors[i] = (points[JointMappingIKBones[i, 1]] - points[JointMappingIKBones[i, 0]]).normalized;
 
-        Debug.Log("frame " + currentFrame);
+        //Debug.Log("frame " + currentFrame);
         currentFrame++;
     }
 
