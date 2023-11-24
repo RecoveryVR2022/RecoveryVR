@@ -2,7 +2,7 @@
 ## WHO WE ARE
 A team trying to have huge ramifications in the entire VR industry across workplace training, fitness, elite sport, healthcare and gaming.
 ## Members
-Mia, Hongyi, Zhilin, Haixu, Zhian
+Mia, Hongyi, Zhilin, Haixu, Zhian,Beichen
 ## What is RecoveryVR
 Virtual Reality, often called VR in short, is a system that enables a user to intuitively view or traverse a simulated worldspace. A VR headset, when strapped on, provides 180 degree view similar to human perception in real life. The VR headset can turn or lean the viewpoint by tracking the movement of user’s head, achieving a synchronized experience. With the help of a pair of VR controllers, the relative movement of both hands can be reflected into the simulated world, making the experience more believable and intuitive. Thanks to this, VR technology is very popular among rehabitation and work education industry, since it greatly reduce the learning cost while providing a controlled environment for activities.
 
